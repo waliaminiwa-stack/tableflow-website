@@ -1,0 +1,14 @@
+{
+  "id": "session-1785883577513",
+  "startedAt": "2026-08-04T22:46:17.513Z",
+  "cwd": "/Users/waliamini/Documents/Design-sub/Projekte/TableFlow/TableflowWebseite/tableflow-website",
+  "context": {},
+  "metrics": {
+    "edits": 32,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "endedAt": "2026-08-09T06:43:27.562Z",
+  "duration": 374230050
+}
