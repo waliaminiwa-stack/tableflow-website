@@ -4,7 +4,20 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/animat
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.tableflow.de";
 
-const PLANS = [
+type Plan = {
+  key: string;
+  label: string;
+  price: string;
+  description: string;
+  features: { label: string; detail: string }[];
+  excluded: { label: string }[];
+  cta: string;
+  ctaClass: string;
+  highlighted?: boolean;
+  premium?: boolean;
+};
+
+const PLANS: Plan[] = [
   {
     key: "basic",
     label: "Basic",
@@ -14,7 +27,7 @@ const PLANS = [
       { label: "Digitale Speisekarte & QR-Codes", detail: "Menü online stellen, Gäste scannen direkt am Tisch" },
       { label: "Bestellverwaltung", detail: "Bestellungen annehmen, verwalten und abschließen" },
       { label: "Kellner- & Küchen-Dashboard", detail: "Eigene Ansichten für Service und Küche, PIN-Zugriff ohne Admin-Login" },
-      { label: "Bis zu 15 Tische", detail: "Ideal fur kleine bis mittlere Restaurants" },
+      { label: "Bis zu 15 Tische", detail: "Ideal für kleine bis mittlere Restaurants" },
     ],
     excluded: [
       { label: "Interaktiver Floor Plan" },
@@ -40,6 +53,21 @@ const PLANS = [
       "bg-[#FF6B35] text-white hover:brightness-95 shadow-[0_8px_24px_-8px_rgba(255,107,53,0.45)] hover:shadow-[0_12px_28px_-8px_rgba(255,107,53,0.55)] active:scale-[0.97]",
     highlighted: true,
   },
+  {
+    key: "business",
+    label: "Business",
+    price: "49,95",
+    description: "Für Restaurants mit eigenem Markenauftritt",
+    features: [
+      { label: "Alles aus Pro", detail: "Alle Funktionen des Pro-Pakets inklusive" },
+      { label: "Eigenes Logo", detail: "Dein Logo statt TableFlow-Branding auf der Gäste-Speisekarte" },
+      { label: "Eigene Akzentfarbe", detail: "Buttons und Highlights in deiner Markenfarbe, mit automatischer Kontrastprüfung für gute Lesbarkeit" },
+    ],
+    excluded: [],
+    cta: "Business starten",
+    ctaClass: "bg-slate-900 text-white hover:bg-slate-700 active:scale-[0.97]",
+    premium: true,
+  },
 ];
 
 export default function PricingSection() {
@@ -58,7 +86,7 @@ export default function PricingSection() {
           </p>
         </ScrollReveal>
 
-        <StaggerContainer className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {PLANS.map((plan) => (
             <StaggerItem key={plan.key}>
               <motion.div
@@ -66,12 +94,16 @@ export default function PricingSection() {
                   y: -6,
                   boxShadow: plan.highlighted
                     ? "0 24px 48px -12px rgba(255,107,53,0.18)"
+                    : plan.premium
+                    ? "0 24px 48px -12px rgba(15,23,42,0.16)"
                     : "0 24px 48px -12px rgba(15,23,42,0.12)",
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
                 className={`rounded-2xl p-8 flex flex-col h-full transition-shadow ${
                   plan.highlighted
                     ? "bg-white border-2 border-[#FF6B35]/25"
+                    : plan.premium
+                    ? "bg-white border-2 border-slate-800/15"
                     : "bg-white border border-slate-200"
                 }`}
               >
@@ -82,6 +114,11 @@ export default function PricingSection() {
                   {plan.highlighted && (
                     <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-orange-50 text-[#FF6B35] border border-orange-200">
                       Empfohlen
+                    </span>
+                  )}
+                  {plan.premium && (
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900 text-white">
+                      Premium
                     </span>
                   )}
                 </div>
@@ -111,7 +148,7 @@ export default function PricingSection() {
                       </svg>
                       <div className="min-w-0">
                         <p className="text-sm font-medium text-slate-400 line-through leading-snug">{f.label}</p>
-                        <p className="text-[11px] text-[#FF6B35] font-semibold mt-0.5">Nur in Pro</p>
+                        <p className="text-[11px] text-[#FF6B35] font-semibold mt-0.5">Ab Pro verfügbar</p>
                       </div>
                     </li>
                   ))}

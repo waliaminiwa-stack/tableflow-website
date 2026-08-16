@@ -25,8 +25,8 @@ const faqs = [
     a: "Ja. Es gibt keine Laufzeitverpflichtung. Du kannst dein Abo jederzeit im Kundenportal kündigen oder deinen Plan wechseln.",
   },
   {
-    q: "Was ist der Unterschied zwischen Basic und Pro?",
-    a: "Basic enthält die digitale Speisekarte, Bestellverwaltung und das Kellner- sowie Küchen-Dashboard für bis zu 15 Tische. Pro ergänzt das um den interaktiven Floor Plan, Reservierungsverwaltung und unbegrenzte Tische.",
+    q: "Was ist der Unterschied zwischen den Paketen?",
+    a: "Basic enthält die digitale Speisekarte, Bestellverwaltung und das Kellner- sowie Küchen-Dashboard für bis zu 15 Tische. Pro ergänzt das um den interaktiven Floor Plan, Reservierungsverwaltung und unbegrenzte Tische. Business baut auf Pro auf und fügt White-Label-Funktionen hinzu: eigenes Logo und eigene Akzentfarbe auf der Gäste-Speisekarte.",
   },
   {
     q: "Wie wird bezahlt?",

@@ -43,8 +43,8 @@ export default function AgbPage() {
         </p>
         <p>
           (2) Der konkrete Funktionsumfang richtet sich nach dem vom Kunden gewählten Preispaket
-          (aktuell &bdquo;Basic&ldquo; und &bdquo;Pro&ldquo;), wie zum Zeitpunkt der Buchung auf
-          der Website/in der Anwendung dargestellt.
+          (aktuell &bdquo;Basic&ldquo;, &bdquo;Pro&ldquo; und &bdquo;Business&ldquo;), wie zum
+          Zeitpunkt der Buchung auf der Website/in der Anwendung dargestellt.
         </p>
         <p>
           (3) Der Anbieter ist berechtigt, die Software im Rahmen der Weiterentwicklung anzupassen,
