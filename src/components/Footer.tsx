@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -7,14 +8,15 @@ export default function Footer() {
     <footer className="border-t border-slate-100 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="flex items-center gap-2.5">
-            <span className="w-7 h-7 rounded-lg bg-slate-900 flex items-center justify-center">
-              <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
-                <path d="M3 5h12M3 9h8M3 13h5" stroke="#FF6B35" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </span>
-            <span className="text-sm font-bold text-slate-900">TableFlow</span>
-            <span className="text-xs text-slate-400 ml-1">
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logo-full.svg"
+              alt="TableFlow"
+              width={124}
+              height={28}
+              className="h-7 w-auto"
+            />
+            <span className="text-xs text-slate-400">
               &copy; {year} DesignSub
             </span>
           </div>

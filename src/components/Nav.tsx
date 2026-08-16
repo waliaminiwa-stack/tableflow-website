@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useScroll } from "motion/react";
 
@@ -23,13 +24,15 @@ export default function Nav() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M3 5h12M3 9h8M3 13h5" stroke="#FF6B35" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          </span>
-          <span className="text-lg font-extrabold tracking-tight text-slate-900">TableFlow</span>
+        <Link href="/" className="flex items-center shrink-0">
+          <Image
+            src="/logo-full.svg"
+            alt="TableFlow"
+            width={160}
+            height={36}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
