@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useScroll } from "motion/react";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.tableflow.de";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.table-flow.de";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);

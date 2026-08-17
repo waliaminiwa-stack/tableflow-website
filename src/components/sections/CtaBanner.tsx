@@ -1,6 +1,6 @@
 import ScrollReveal from "@/components/animations/ScrollReveal";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.tableflow.de";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.table-flow.de";
 
 export default function CtaBanner() {
   return (

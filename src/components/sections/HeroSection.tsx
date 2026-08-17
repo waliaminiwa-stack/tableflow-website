@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion, AnimatePresence } from "motion/react";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.tableflow.de";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.table-flow.de";
 
 const ORDER_STEPS = [
   {

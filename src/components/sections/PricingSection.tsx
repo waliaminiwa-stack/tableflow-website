@@ -2,7 +2,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.tableflow.de";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.table-flow.de";
 
 type Plan = {
   key: string;
