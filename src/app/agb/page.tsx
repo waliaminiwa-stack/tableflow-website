@@ -149,7 +149,7 @@ export default function AgbPage() {
         </p>
         <p>
           (2) Support erfolgt per E-Mail an{" "}
-          <a href="mailto:info@design-sub.de">info@design-sub.de</a> zu den üblichen
+          <a href="mailto:info@table-flow.de">info@table-flow.de</a> zu den üblichen
           Geschäftszeiten. Eine bestimmte Reaktionszeit wird nicht zugesichert, sofern nicht
           gesondert vereinbart.
         </p>

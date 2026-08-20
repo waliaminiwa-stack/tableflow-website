@@ -31,10 +31,10 @@ export default function KontaktPage() {
               <div>
                 <p className="text-sm font-semibold text-slate-900">E-Mail</p>
                 <a
-                  href="mailto:info@design-sub.de"
+                  href="mailto:info@table-flow.de"
                   className="text-sm text-slate-500 hover:text-[#FF6B35] transition-colors"
                 >
-                  info@design-sub.de
+                  info@table-flow.de
                 </a>
               </div>
             </div>

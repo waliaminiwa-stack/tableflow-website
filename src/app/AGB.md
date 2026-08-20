@@ -68,7 +68,7 @@ Stand: 04.08.2026
 
 (1) Der Anbieter bemüht sich um eine Verfügbarkeit der Software von im Jahresmittel 99 %, ausgenommen Zeiten planmäßiger Wartung sowie Ausfälle, die außerhalb des Einflussbereichs des Anbieters liegen (z.B. Ausfälle bei Hosting-/Infrastrukturdienstleistern).
 
-(2) Support erfolgt per E-Mail an info@design-sub.de zu den üblichen Geschäftszeiten. Eine bestimmte Reaktionszeit wird nicht zugesichert, sofern nicht gesondert vereinbart.
+(2) Support erfolgt per E-Mail an info@table-flow.de zu den üblichen Geschäftszeiten. Eine bestimmte Reaktionszeit wird nicht zugesichert, sofern nicht gesondert vereinbart.
 
 ## § 9 Haftung
 
