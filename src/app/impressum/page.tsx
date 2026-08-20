@@ -29,7 +29,7 @@ export default function ImpressumPage() {
         <h2>Kontakt</h2>
         <p>
           Telefon: +49 162 412 1870<br />
-          E-Mail: <a href="mailto:info@design-sub.de">info@design-sub.de</a>
+          E-Mail: <a href="mailto:info@table-flow.de">info@table-flow.de</a>
         </p>
 
         <h2>Umsatzsteuer</h2>

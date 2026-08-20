@@ -14,7 +14,7 @@ Wali Amini
 
 **Kontakt**
 Telefon: +49 162 412 1870
-E-Mail: info@design-sub.de
+E-Mail: info@table-flow.de
 
 **Umsatzsteuer**
 Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:

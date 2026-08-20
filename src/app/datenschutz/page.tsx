@@ -20,7 +20,7 @@ export default function DatenschutzPage() {
           Wali Amini (DesignSub)<br />
           Spitzbergenweg 24a<br />
           22145 Hamburg<br />
-          E-Mail: <a href="mailto:info@design-sub.de">info@design-sub.de</a><br />
+          E-Mail: <a href="mailto:info@table-flow.de">info@table-flow.de</a><br />
           Telefon: +49 162 412 1870
         </p>
         <p>
@@ -109,7 +109,7 @@ export default function DatenschutzPage() {
           Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung
           (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und
           Widerspruch (Art. 21) bezüglich deiner personenbezogenen Daten. Wende dich dazu an:{" "}
-          <a href="mailto:info@design-sub.de">info@design-sub.de</a>. Du hast außerdem das Recht,
+          <a href="mailto:info@table-flow.de">info@table-flow.de</a>. Du hast außerdem das Recht,
           dich bei einer Datenschutzaufsichtsbehörde zu beschweren (in Hamburg: Der Hamburgische
           Beauftragte für Datenschutz und Informationsfreiheit).
         </p>

@@ -7,7 +7,7 @@ Stand: August 2026
 Wali Amini (DesignSub)
 Spitzbergenweg 24a
 22145 Hamburg
-E-Mail: info@design-sub.de
+E-Mail: info@table-flow.de
 Telefon: +49 162 412 1870
 
 Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) für die Nutzung von TableFlow ist DesignSub. TableFlow wird an Restaurants ("Kunden") lizenziert; jedes Restaurant ist innerhalb seines eigenen Kontos selbst datenschutzrechtlich verantwortlich für die Daten seiner Gäste und Mitarbeiter (Auftragsverarbeitung, siehe Punkt 6).
@@ -49,7 +49,7 @@ TableFlow verwendet aktuell nur technisch notwendige Cookies/lokale Speicherung 
 
 ## 8. Rechte der betroffenen Personen
 
-Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21) bezüglich deiner personenbezogenen Daten. Wende dich dazu an: info@design-sub.de. Du hast außerdem das Recht, dich bei einer Datenschutzaufsichtsbehörde zu beschweren (in Hamburg: Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit).
+Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21) bezüglich deiner personenbezogenen Daten. Wende dich dazu an: info@table-flow.de. Du hast außerdem das Recht, dich bei einer Datenschutzaufsichtsbehörde zu beschweren (in Hamburg: Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit).
 
 ## 9. Datensicherheit
 
