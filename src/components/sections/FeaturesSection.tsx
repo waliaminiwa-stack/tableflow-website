@@ -63,6 +63,21 @@ const features = [
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <rect x="2" y="3" width="18" height="16" rx="2" stroke="#FF6B35" strokeWidth="1.5" />
+        <path d="M2 7h18" stroke="#FF6B35" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M6 7v12M11 7v12M16 7v12" stroke="#FF6B35" strokeWidth="1" strokeLinecap="round" strokeDasharray="2 2" />
+        <circle cx="11" cy="12" r="2.5" stroke="#FF6B35" strokeWidth="1.5" />
+        <path d="M10 12l1 1 1.5-1.5" stroke="#FF6B35" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+    title: "Mittagstisch (Wochenplan)",
+    description:
+      "Mit dem Mittagstisch könnt ihr einen wiederkehrenden Wochenplan mit Tagesangeboten anlegen, der euren Gästen automatisch nur während der von euch festgelegten Öffnungszeiten des Mittagstischs angezeigt wird.",
+    business: true,
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <path d="M3 18l4-4 3 3 4-5 5 6" stroke="#FF6B35" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M3 4h16" stroke="#FF6B35" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
@@ -101,6 +116,11 @@ export default function FeaturesSection() {
                   {f.pro && (
                     <span className="shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#FF6B35] border border-orange-200">
                       Pro
+                    </span>
+                  )}
+                  {f.business && (
+                    <span className="shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-900 text-white">
+                      Business
                     </span>
                   )}
                 </div>
