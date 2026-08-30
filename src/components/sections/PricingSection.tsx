@@ -46,6 +46,7 @@ const PLANS: Plan[] = [
       { label: "Alles aus Basic", detail: "Alle Funktionen des Basic-Pakets inklusive" },
       { label: "Interaktiver Floor Plan", detail: "Visuelle Tischübersicht mit Live-Status, Drag & Drop Layout-Editor" },
       { label: "Reservierungsverwaltung", detail: "Reservierungen anlegen, bearbeiten und Tischen zuweisen" },
+      { label: "Bewertungslink (Google, Yelp, …)", detail: "\"Bewerte uns\"-Button auf der Gäste-Speisekarte — direkt nach der Bestellung sichtbar" },
       { label: "Bis zu 25 Tische", detail: "Für Restaurants mit mehreren Bereichen oder wachsenden Tischzahlen" },
     ],
     excluded: [],
@@ -102,6 +103,7 @@ const COMPARISON: TableCategory[] = [
   {
     category: "Branding & Speisekarte",
     rows: [
+      { feature: "Bewertungslink (Google, Yelp, …)",      basic: false,        pro: true,         business: true },
       { feature: "Eigenes Logo auf der Speisekarte",      basic: false,        pro: false,        business: true },
       { feature: "Eigene Akzentfarbe",                    basic: false,        pro: false,        business: true },
       { feature: "Hintergrundbild (Speisekarte)",         basic: false,        pro: false,        business: true },
