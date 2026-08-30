@@ -1,5 +1,6 @@
 "use client";
-import { motion, useReducedMotion } from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.table-flow.de";
@@ -72,8 +73,163 @@ const PLANS: Plan[] = [
   },
 ];
 
+// ─── Comparison table data ────────────────────────────────────────────────────
+// Values verified against app plan gating (src/lib/stripe.js, actions.js,
+// branding/route.js, guest/lunch/route.js, SubscriptionContext.jsx).
+type CellValue = true | false | string;
+type TableRow = { feature: string; basic: CellValue; pro: CellValue; business: CellValue };
+type TableCategory = { category: string; rows: TableRow[] };
+
+const COMPARISON: TableCategory[] = [
+  {
+    category: "Bestellungen & Küche",
+    rows: [
+      { feature: "QR-Code-Bestellung am Tisch",          basic: true,         pro: true,         business: true },
+      { feature: "Kellner- & Küchen-Dashboard",           basic: true,         pro: true,         business: true },
+      { feature: "Bestellstatus-Verwaltung",              basic: true,         pro: true,         business: true },
+      { feature: "Mittagstisch (Wochenplan)",             basic: false,        pro: false,        business: true },
+    ],
+  },
+  {
+    category: "Tische & Reservierungen",
+    rows: [
+      { feature: "Anzahl Tische",                         basic: "15 Tische",  pro: "25 Tische",  business: "Unbegrenzt" },
+      { feature: "Interaktiver Floor Plan (Drag & Drop)", basic: false,        pro: true,         business: true },
+      { feature: "Reservierungsverwaltung",               basic: false,        pro: true,         business: true },
+      { feature: "Tisch-Aktivierungscode",                basic: true,         pro: true,         business: true },
+    ],
+  },
+  {
+    category: "Branding & Speisekarte",
+    rows: [
+      { feature: "Eigenes Logo auf der Speisekarte",      basic: false,        pro: false,        business: true },
+      { feature: "Eigene Akzentfarbe",                    basic: false,        pro: false,        business: true },
+      { feature: "Hintergrundbild (Speisekarte)",         basic: false,        pro: false,        business: true },
+    ],
+  },
+  {
+    category: "Support & Sonstiges",
+    rows: [
+      { feature: "14 Tage Gratis-Testzeitraum",           basic: true,         pro: true,         business: true },
+      { feature: "E-Mail-Support",                        basic: true,         pro: true,         business: true },
+      { feature: "Kein Vertrag, jederzeit kündbar",       basic: true,         pro: true,         business: true },
+    ],
+  },
+];
+
+function CheckIcon() {
+  return (
+    <svg className="w-5 h-5 text-emerald-500 mx-auto" viewBox="0 0 20 20" fill="none">
+      <path d="M4 10l4 4 8-8" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function DashIcon() {
+  return (
+    <svg className="w-5 h-5 text-slate-300 mx-auto" viewBox="0 0 20 20" fill="none">
+      <path d="M6 10h8" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function Cell({ value }: { value: CellValue }) {
+  if (value === true) return <CheckIcon />;
+  if (value === false) return <DashIcon />;
+  return <span className="text-sm font-semibold text-slate-700">{value}</span>;
+}
+
+function ComparisonTable() {
+  return (
+    <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <table className="w-full min-w-[540px] border-collapse text-sm">
+        <thead>
+          <tr className="border-b border-slate-200">
+            <th className="sticky left-0 z-10 bg-white py-4 pl-6 pr-4 text-left text-xs font-bold uppercase tracking-wider text-slate-400 w-[44%]">
+              Funktion
+            </th>
+            <th className="py-4 px-4 text-center font-bold text-slate-700 w-[18%]">Basic</th>
+            <th className="py-4 px-4 text-center font-bold text-[#FF6B35] w-[18%]">
+              <span className="inline-flex items-center gap-1.5">
+                Pro
+                <span className="text-[9px] font-bold bg-orange-50 text-[#FF6B35] border border-orange-200 px-1.5 py-0.5 rounded-full leading-none">
+                  Empfohlen
+                </span>
+              </span>
+            </th>
+            <th className="py-4 px-4 text-center font-bold text-slate-700 w-[18%]">Business</th>
+          </tr>
+        </thead>
+        <tbody>
+          {COMPARISON.map((cat) => (
+            <>
+              <tr key={`cat-${cat.category}`} className="border-t border-slate-100 bg-slate-50/70">
+                <td
+                  colSpan={4}
+                  className="sticky left-0 z-10 bg-slate-50/70 py-2.5 pl-6 text-[11px] font-bold uppercase tracking-wider text-slate-400"
+                >
+                  {cat.category}
+                </td>
+              </tr>
+              {cat.rows.map((row, i) => (
+                <tr
+                  key={row.feature}
+                  className={`border-t border-slate-100 transition-colors hover:bg-slate-50/60 ${
+                    i === cat.rows.length - 1 ? "" : ""
+                  }`}
+                >
+                  <td className="sticky left-0 z-10 bg-white py-3.5 pl-6 pr-4 font-medium text-slate-700 leading-snug hover:bg-slate-50/60">
+                    {row.feature}
+                  </td>
+                  <td className="py-3.5 px-4 text-center">
+                    <Cell value={row.basic} />
+                  </td>
+                  <td className="py-3.5 px-4 text-center bg-orange-50/30">
+                    <Cell value={row.pro} />
+                  </td>
+                  <td className="py-3.5 px-4 text-center">
+                    <Cell value={row.business} />
+                  </td>
+                </tr>
+              ))}
+            </>
+          ))}
+          <tr className="border-t border-slate-200">
+            <td className="sticky left-0 z-10 bg-white py-5 pl-6" />
+            <td className="py-5 px-4 text-center">
+              <a
+                href={`${APP_URL}/register`}
+                className="inline-flex items-center justify-center h-9 px-4 rounded-xl text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 active:scale-[0.97] transition-all"
+              >
+                Basic starten
+              </a>
+            </td>
+            <td className="py-5 px-4 text-center bg-orange-50/30">
+              <a
+                href={`${APP_URL}/register`}
+                className="inline-flex items-center justify-center h-9 px-4 rounded-xl text-xs font-semibold bg-[#FF6B35] text-white hover:brightness-95 shadow-[0_4px_12px_-4px_rgba(255,107,53,0.5)] active:scale-[0.97] transition-all"
+              >
+                Pro starten
+              </a>
+            </td>
+            <td className="py-5 px-4 text-center">
+              <a
+                href={`${APP_URL}/register`}
+                className="inline-flex items-center justify-center h-9 px-4 rounded-xl text-xs font-semibold bg-slate-900 text-white hover:bg-slate-700 active:scale-[0.97] transition-all"
+              >
+                Business starten
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export default function PricingSection() {
   const reduce = useReducedMotion();
+  const [open, setOpen] = useState(false);
 
   return (
     <section id="pricing" className="py-20 lg:py-28 bg-slate-50">
@@ -166,6 +322,42 @@ export default function PricingSection() {
             </StaggerItem>
           ))}
         </StaggerContainer>
+
+        {/* Toggle button */}
+        <ScrollReveal delay={0.15} className="flex justify-center mt-10">
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors group"
+            aria-expanded={open}
+          >
+            {open ? "Weniger anzeigen" : "Alle Funktionen vergleichen"}
+            <svg
+              className={`w-4 h-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </ScrollReveal>
+
+        {/* Expandable comparison table */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              key="comparison"
+              initial={reduce ? {} : { opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={reduce ? {} : { opacity: 0, height: 0 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="overflow-hidden"
+            >
+              <div className="pt-8 max-w-5xl mx-auto">
+                <ComparisonTable />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <ScrollReveal delay={0.2}>
           <p className="text-center text-sm text-slate-400 mt-8">
