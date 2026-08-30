@@ -180,45 +180,74 @@ export default function ProductTabsSection() {
               </motion.div>
             </AnimatePresence>
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`mockup-${active}`}
-                initial={reduce ? false : { opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.35, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-100/60 overflow-hidden"
-              >
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-100 bg-slate-50/60">
-                  <div className="flex gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-slate-200" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-slate-200" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-slate-200" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-400 ml-2">{tab.mockup.title}</span>
-                </div>
-                <div className="p-4 space-y-2">
-                  {tab.mockup.items.map((item, i) => (
-                    <div key={i} className="flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-colors">
-                      <span className="text-sm font-medium text-slate-800">{item.name}</span>
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-slate-400">{item.price}</span>
-                        {item.badge && (
-                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${colors.badge}`}>
-                            {item.badge}
-                          </span>
-                        )}
-                      </div>
+            <div className="relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`mockup-${active}`}
+                  initial={reduce ? false : { opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: 0.35, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  className="bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-100/60 overflow-hidden"
+                >
+                  <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-100 bg-slate-50/60">
+                    <div className="flex gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-slate-200" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-slate-200" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-slate-200" />
                     </div>
-                  ))}
+                    <span className="text-xs font-semibold text-slate-400 ml-2">{tab.mockup.title}</span>
+                  </div>
+                  <div className="p-4 space-y-2">
+                    {tab.mockup.items.map((item, i) => (
+                      <div key={i} className="flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-colors">
+                        <span className="text-sm font-medium text-slate-800">{item.name}</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm text-slate-400">{item.price}</span>
+                          {item.badge && (
+                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${colors.badge}`}>
+                              {item.badge}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="px-4 pb-4">
+                    <p className="text-[11px] text-slate-400 text-center">
+                      Platzhalter - echte Screenshots werden ergänzt
+                    </p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Annotation bubble: Live-Ticker (top-right) */}
+              <div className="hidden md:flex absolute -top-4 right-0 z-10 flex-col items-end pointer-events-none">
+                <div className="flex items-center gap-2 bg-white rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.09)] border border-slate-100 px-3.5 py-2">
+                  <span className="w-5 h-5 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center shrink-0">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle cx="5" cy="5" r="3.5" stroke="#FF6B35" strokeWidth="1.2"/>
+                      <path d="M5 3v2.2l1.3 1" stroke="#FF6B35" strokeWidth="1.1" strokeLinecap="round"/>
+                    </svg>
+                  </span>
+                  <span className="text-xs font-bold text-slate-800 whitespace-nowrap">Live-Ticker</span>
                 </div>
-                <div className="px-4 pb-4">
-                  <p className="text-[11px] text-slate-400 text-center">
-                    Platzhalter - echte Screenshots werden ergänzt
-                  </p>
+                <div className="w-px h-5 bg-gradient-to-b from-orange-300/60 to-transparent mr-7" />
+              </div>
+
+              {/* Annotation bubble: Kein Zettelchaos (bottom-left) */}
+              <div className="hidden md:flex absolute -bottom-4 left-0 z-10 flex-col items-start pointer-events-none">
+                <div className="w-px h-5 bg-gradient-to-t from-slate-200/60 to-transparent ml-7" />
+                <div className="flex items-center gap-2 bg-white rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.09)] border border-slate-100 px-3.5 py-2">
+                  <span className="w-5 h-5 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center shrink-0">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <path d="M2 3h6M2 5.5h4M2 8h5" stroke="#FF6B35" strokeWidth="1.2" strokeLinecap="round"/>
+                    </svg>
+                  </span>
+                  <span className="text-xs font-bold text-slate-800 whitespace-nowrap">Kein Zettelchaos</span>
                 </div>
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
       </div>

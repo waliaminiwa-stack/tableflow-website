@@ -201,6 +201,40 @@ export default function HeroSection() {
             <OrderFlowDemo />
             <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-full bg-[#FF6B35]/8 blur-3xl pointer-events-none" />
             <div className="absolute -top-4 -left-4 w-24 h-24 rounded-full bg-blue-500/6 blur-3xl pointer-events-none" />
+
+            {/* Annotation bubble: Echtzeit-Status (top-right) */}
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 1.0 }}
+              className="hidden sm:flex absolute -top-4 right-0 z-10 flex-col items-end pointer-events-none"
+            >
+              <div className="flex items-center gap-2 bg-white rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.09)] border border-slate-100 px-3.5 py-2">
+                <span className="w-5 h-5 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center shrink-0">
+                  <span className="w-2 h-2 rounded-full bg-[#FF6B35] animate-pulse" />
+                </span>
+                <span className="text-xs font-bold text-slate-800 whitespace-nowrap">Echtzeit-Status</span>
+              </div>
+              <div className="w-px h-5 bg-gradient-to-b from-orange-300/60 to-transparent mr-8" />
+            </motion.div>
+
+            {/* Annotation bubble: Kein App-Download (bottom-left) */}
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 1.15 }}
+              className="hidden sm:flex absolute -bottom-4 left-0 z-10 flex-col items-start pointer-events-none"
+            >
+              <div className="w-px h-5 bg-gradient-to-t from-slate-200/60 to-transparent ml-8" />
+              <div className="flex items-center gap-2 bg-white rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.09)] border border-slate-100 px-3.5 py-2">
+                <span className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#10b981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
+                <span className="text-xs font-bold text-slate-800 whitespace-nowrap">Kein App-Download</span>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
