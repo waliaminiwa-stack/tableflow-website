@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const RECIPIENT = "info@table-flow.de";
-const FROM = "TableFlow Kontakt <kontakt@tableflow.de>";
+const FROM = "TableFlow Kontakt <kontakt@table-flow.de>";
 
 // Simple in-memory rate limit: max 5 requests per IP per 10 minutes
 const rateMap = new Map<string, { count: number; reset: number }>();
