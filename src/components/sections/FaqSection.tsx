@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Was ist der Unterschied zwischen den Paketen?",
-    a: "Basic enthält die digitale Speisekarte, Bestellverwaltung und das Kellner- sowie Küchen-Dashboard für bis zu 15 Tische. Pro ergänzt das um den interaktiven Floor Plan, Reservierungsverwaltung und unbegrenzte Tische. Business baut auf Pro auf und fügt White-Label-Funktionen hinzu: eigenes Logo und eigene Akzentfarbe auf der Gäste-Speisekarte.",
+    a: "Basic enthält die digitale Speisekarte, Bestellverwaltung und das Kellner- sowie Küchen-Dashboard für bis zu 15 Tische. Pro erweitert dies um interaktiven Floor Plan, Reservierungsverwaltung und Bewertungslink – für bis zu 25 Tische. Business baut auf Pro auf und fügt eigenes Logo, Akzentfarbe sowie den Mittagstisch-Wochenplan für unbegrenzte Tische hinzu.",
   },
   {
     q: "Wie wird bezahlt?",

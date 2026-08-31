@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Datenschutzerklärung",
   description: "Datenschutzerklärung von TableFlow.",
   robots: { index: false },
+  alternates: {
+    canonical: "https://www.table-flow.de/datenschutz",
+  },
 };
 
 export default function DatenschutzPage() {

@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Kontakt",
+  title: "Kontakt – TableFlow",
   description:
-    "Nimm Kontakt mit dem TableFlow-Team auf - wir helfen dir gerne weiter.",
+    "Fragen zu TableFlow? Schreib uns – wir helfen dir beim Einstieg in dein digitales Bestellsystem und melden uns in der Regel innerhalb von 24 Stunden.",
+  alternates: {
+    canonical: "https://www.table-flow.de/kontakt",
+  },
 };
 
 export default function KontaktPage() {

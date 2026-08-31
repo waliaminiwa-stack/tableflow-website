@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Allgemeine Geschäftsbedingungen",
   description: "AGB von TableFlow – SaaS-Vertragsbedingungen.",
   robots: { index: false },
+  alternates: {
+    canonical: "https://www.table-flow.de/agb",
+  },
 };
 
 export default function AgbPage() {

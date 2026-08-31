@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.tableflow.de";
+  const base = "https://www.table-flow.de";
 
   return [
     {

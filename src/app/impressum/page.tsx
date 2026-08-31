@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Impressum",
   description: "Impressum und Anbieterkennzeichnung von TableFlow.",
   robots: { index: false },
+  alternates: {
+    canonical: "https://www.table-flow.de/impressum",
+  },
 };
 
 export default function ImpressumPage() {

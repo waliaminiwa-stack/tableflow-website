@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://www.tableflow.de/sitemap.xml",
+    sitemap: "https://www.table-flow.de/sitemap.xml",
   };
 }
