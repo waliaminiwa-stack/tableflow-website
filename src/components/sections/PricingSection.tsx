@@ -234,13 +234,13 @@ export default function PricingSection() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section id="pricing" className="py-20 lg:py-28 bg-[#0C111D]">
+    <section id="pricing" className="py-20 lg:py-28 bg-orange-50/25">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center max-w-2xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-4">
             Einfache, transparente Preise
           </h2>
-          <p className="text-lg text-slate-400">
+          <p className="text-lg text-slate-500">
             14 Tage gratis testen - ohne Kreditkarte. Kein Vertrag, jederzeit
             kündbar.
           </p>
@@ -329,7 +329,7 @@ export default function PricingSection() {
         <ScrollReveal delay={0.15} className="flex justify-center mt-10">
           <button
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors duration-150 group"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors duration-150 group"
             aria-expanded={open}
           >
             {open ? "Weniger anzeigen" : "Alle Funktionen vergleichen"}
