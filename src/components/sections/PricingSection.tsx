@@ -329,12 +329,12 @@ export default function PricingSection() {
         <ScrollReveal delay={0.15} className="flex justify-center mt-10">
           <button
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors group"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors duration-150 group"
             aria-expanded={open}
           >
             {open ? "Weniger anzeigen" : "Alle Funktionen vergleichen"}
             <svg
-              className={`w-4 h-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+              className={`w-4 h-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
               viewBox="0 0 16 16"
               fill="none"
             >

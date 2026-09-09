@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { useScroll } from "motion/react";
+import { useScroll, motion, AnimatePresence, useReducedMotion } from "motion/react";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.table-flow.de";
 
@@ -10,6 +10,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     return scrollY.on("change", (v) => setScrolled(v > 24));
@@ -82,39 +83,47 @@ export default function Nav() {
         </button>
       </div>
 
-      {open && (
-        <div className="md:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-1">
-          {[
-            { href: "/#features", label: "Funktionen" },
-            { href: "/#pricing", label: "Preise" },
-            { href: "/#faq", label: "FAQ" },
-            { href: "/kontakt", label: "Kontakt" },
-          ].map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
-          <div className="pt-2 flex flex-col gap-2">
-            <a
-              href={`${APP_URL}/login`}
-              className="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 text-center border border-slate-200 hover:bg-slate-50 transition"
-            >
-              Anmelden
-            </a>
-            <a
-              href={`${APP_URL}/register`}
-              className="block px-3 py-2.5 rounded-xl text-sm font-semibold text-white text-center bg-[#FF6B35] hover:brightness-95 transition active:scale-[0.98]"
-            >
-              Kostenlos starten
-            </a>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-1"
+          >
+            {[
+              { href: "/#features", label: "Funktionen" },
+              { href: "/#pricing", label: "Preise" },
+              { href: "/#faq", label: "FAQ" },
+              { href: "/kontakt", label: "Kontakt" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors duration-150"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <div className="pt-2 flex flex-col gap-2">
+              <a
+                href={`${APP_URL}/login`}
+                className="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 text-center border border-slate-200 hover:bg-slate-50 transition-colors duration-150"
+              >
+                Anmelden
+              </a>
+              <a
+                href={`${APP_URL}/register`}
+                className="block px-3 py-2.5 rounded-xl text-sm font-semibold text-white text-center bg-[#FF6B35] hover:brightness-95 transition-[filter,transform] duration-150 active:scale-[0.98]"
+              >
+                Kostenlos starten
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

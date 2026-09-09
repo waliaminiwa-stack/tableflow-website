@@ -100,9 +100,9 @@ function OrderFlowDemo() {
           <AnimatePresence mode="wait">
             <motion.span
               key={current.status}
-              initial={reduce ? false : { opacity: 0, scale: 0.85 }}
+              initial={reduce ? false : { opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.85 }}
+              exit={{ opacity: 0, scale: 0.92 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold border shrink-0 ${current.color}`}
             >
@@ -151,46 +151,67 @@ export default function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-24 lg:pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 mb-6">
+          <div>
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 mb-6"
+            >
               <span className="w-2 h-2 rounded-full bg-[#FF6B35] animate-pulse" />
               <span className="text-xs font-semibold text-orange-700">14 Tage kostenlos testen</span>
-            </div>
+            </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-6">
+            <motion.h1
+              initial={reduce ? false : { opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.07, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-6"
+            >
               Dein Restaurant,{" "}
               <span className="text-[#FF6B35]">digital und effizient</span>
-            </h1>
+            </motion.h1>
 
-            <p className="text-lg text-slate-500 leading-relaxed mb-8 max-w-lg">
+            <motion.p
+              initial={reduce ? false : { opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
+              className="text-lg text-slate-500 leading-relaxed mb-8 max-w-lg"
+            >
               TableFlow bringt digitale Bestellungen, Kellner-Dashboard und
               Küchenmanagement in ein einziges System - ohne Hardware, ohne
               Kassensystem.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.21, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row gap-3"
+            >
               <a
                 href={`${APP_URL}/register`}
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-base font-semibold text-white bg-[#FF6B35] hover:brightness-95 transition-all duration-150 shadow-[0_8px_24px_-8px_rgba(255,107,53,0.45)] hover:shadow-[0_12px_28px_-8px_rgba(255,107,53,0.55)] active:scale-[0.97]"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-base font-semibold text-white bg-[#FF6B35] hover:brightness-95 transition-[transform,box-shadow] duration-150 shadow-[0_8px_24px_-8px_rgba(255,107,53,0.45)] hover:shadow-[0_12px_28px_-8px_rgba(255,107,53,0.55)] active:scale-[0.97]"
               >
                 Kostenlos testen
               </a>
               <a
                 href="#features"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-base font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all duration-150 active:scale-[0.97]"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-base font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-[background-color,transform] duration-150 active:scale-[0.97]"
               >
                 Funktionen entdecken
               </a>
-            </div>
+            </motion.div>
 
-            <p className="mt-5 text-sm text-slate-400">
+            <motion.p
+              initial={reduce ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.32, ease: "easeOut" }}
+              className="mt-5 text-sm text-slate-400"
+            >
               Kein Vertrag, keine Kreditkarte im Trial.
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
 
           <motion.div
             initial={reduce ? false : { opacity: 0, x: 24 }}

@@ -47,7 +47,7 @@ export default function FaqSection() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-14">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
-            Haufige Fragen
+            Häufige Fragen
           </h2>
           <p className="text-lg text-slate-500">
             Hast du weitere Fragen?{" "}
@@ -71,7 +71,7 @@ export default function FaqSection() {
                   </span>
                   <motion.span
                     animate={reduce ? {} : { rotate: open === i ? 45 : 0 }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     className={`shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-colors duration-200 ${
                       open === i
                         ? "border-[#FF6B35] text-[#FF6B35] bg-orange-50"

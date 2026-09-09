@@ -105,8 +105,8 @@ export default function FeaturesSection() {
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((f) => (
             <StaggerItem key={f.title}>
-              <div className="group bg-white rounded-2xl p-6 border border-slate-200/80 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-100 transition-all duration-300 hover:-translate-y-1 cursor-default h-full">
-                <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center mb-4 group-hover:bg-orange-100 group-hover:scale-110 transition-all duration-300">
+              <div className="group bg-white rounded-2xl p-6 border border-slate-200/80 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-100 transition-[border-color,box-shadow,transform] duration-250 hover:-translate-y-1 cursor-default h-full">
+                <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center mb-4 group-hover:bg-orange-100 group-hover:scale-105 transition-[background-color,transform] duration-250">
                   {f.icon}
                 </div>
                 <div className="flex items-start justify-between gap-2 mb-2">
