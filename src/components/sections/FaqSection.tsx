@@ -46,7 +46,7 @@ export default function FaqSection() {
     <section id="faq" className="py-20 lg:py-28 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-4">
             Häufige Fragen
           </h2>
           <p className="text-lg text-slate-500">

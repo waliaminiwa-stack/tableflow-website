@@ -31,14 +31,14 @@ export default function StatsSection() {
           {stats.map((s) => (
             <StaggerItem key={s.label}>
               <div className="text-center">
-                <p className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+                <p className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 tabular-nums">
                   <CountUp
                     target={s.value}
                     prefix={s.prefix}
                     suffix={s.suffix}
                   />
                 </p>
-                <p className="text-sm font-semibold text-slate-700 mt-1">{s.label}</p>
+                <p className="text-sm font-semibold text-slate-600 mt-1.5">{s.label}</p>
                 <p className="text-xs text-slate-400 mt-0.5 hidden sm:block">{s.sub}</p>
               </div>
             </StaggerItem>

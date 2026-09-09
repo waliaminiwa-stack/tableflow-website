@@ -6,7 +6,7 @@
   --color-foreground: #0f172a;
   --color-orange: #FF6B35;
   --color-orange-dark: #e85a24;
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-outfit);
 }
 
 html {
@@ -17,4 +17,12 @@ html {
 body {
   background: var(--color-background);
   color: var(--color-foreground);
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }

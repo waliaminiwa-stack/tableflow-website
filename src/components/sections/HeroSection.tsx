@@ -29,8 +29,25 @@ const ORDER_STEPS = [
 ];
 
 const ORDERS = [
-  { id: 47, table: 7, items: ["Pasta Carbonara", "Mineralwasser"] },
-  { id: 48, table: 3, items: ["Margherita Pizza", "Hauswein"] },
+  {
+    id: 47,
+    table: 7,
+    items: [
+      { name: "Pizza Margherita", price: "14,90 €" },
+      { name: "Spaghetti Carbonara", price: "16,50 €" },
+      { name: "Tiramisu", price: "7,90 €" },
+    ],
+    total: "39,30 €",
+  },
+  {
+    id: 48,
+    table: 3,
+    items: [
+      { name: "Calzone Funghi", price: "15,90 €" },
+      { name: "Hauswein (0,2l)", price: "6,90 €" },
+    ],
+    total: "22,80 €",
+  },
 ];
 
 function OrderFlowDemo() {
@@ -88,11 +105,18 @@ function OrderFlowDemo() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, delay: 0.05 }}
-                className="mt-1.5 space-y-1"
+                className="mt-2 space-y-1.5"
               >
                 {order.items.map((item) => (
-                  <p key={item} className="text-sm font-medium text-slate-800">{item}</p>
+                  <div key={item.name} className="flex items-center justify-between gap-3">
+                    <p className="text-sm font-medium text-slate-800 truncate">{item.name}</p>
+                    <p className="text-xs font-semibold text-slate-400 tabular-nums shrink-0">{item.price}</p>
+                  </div>
                 ))}
+                <div className="flex items-center justify-between pt-2 mt-1 border-t border-slate-100">
+                  <span className="text-xs text-slate-400">Gesamt</span>
+                  <span className="text-sm font-black text-slate-800 tabular-nums">{order.total}</span>
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -166,7 +190,7 @@ export default function HeroSection() {
               initial={reduce ? false : { opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.07, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-6"
+              className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 leading-[1.03] mb-6"
             >
               Dein Restaurant,{" "}
               <span className="text-[#FF6B35]">digital und effizient</span>
