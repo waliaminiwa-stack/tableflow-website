@@ -3,6 +3,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import StatsSection from "@/components/sections/StatsSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import ProductTabsSection from "@/components/sections/ProductTabsSection";
+import ScreenshotsSection from "@/components/sections/ScreenshotsSection";
 import PricingSection from "@/components/sections/PricingSection";
 import FaqSection from "@/components/sections/FaqSection";
 import CtaBanner from "@/components/sections/CtaBanner";
@@ -139,6 +140,7 @@ export default function Home() {
       <StatsSection />
       <FeaturesSection />
       <ProductTabsSection />
+      <ScreenshotsSection />
       <PricingSection />
       <FaqSection />
       <CtaBanner />

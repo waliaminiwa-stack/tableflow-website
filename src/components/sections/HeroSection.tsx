@@ -186,15 +186,40 @@ export default function HeroSection() {
               <span className="text-xs font-semibold text-orange-700">14 Tage kostenlos testen</span>
             </motion.div>
 
-            <motion.h1
-              initial={reduce ? false : { opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.07, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 leading-[1.03] mb-6"
-            >
-              Dein Restaurant,{" "}
-              <span className="text-[#FF6B35]">digital und effizient</span>
-            </motion.h1>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 leading-[1.03] mb-6">
+              {reduce ? (
+                <>
+                  Dein Restaurant,{" "}
+                  <span className="text-[#FF6B35]">digital und effizient</span>
+                </>
+              ) : (
+                <>
+                  {(["Dein", "Restaurant,"] as const).map((word, i) => (
+                    <motion.span
+                      key={`h-${i}`}
+                      initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      transition={{ duration: 0.6, delay: 0.07 + i * 0.085, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ display: "inline-block", paddingRight: "0.25em" }}
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                  {(["digital", "und", "effizient"] as const).map((word, i) => (
+                    <motion.span
+                      key={`o-${i}`}
+                      initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      transition={{ duration: 0.6, delay: 0.24 + i * 0.085, ease: [0.16, 1, 0.3, 1] }}
+                      className="text-[#FF6B35]"
+                      style={{ display: "inline-block", paddingRight: i < 2 ? "0.25em" : 0 }}
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                </>
+              )}
+            </h1>
 
             <motion.p
               initial={reduce ? false : { opacity: 0, y: 18 }}

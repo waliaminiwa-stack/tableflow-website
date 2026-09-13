@@ -13,8 +13,8 @@ export default function ScrollReveal({ children, delay = 0, className, amount = 
 
   return (
     <motion.div
-      initial={reduce ? false : { opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduce ? false : { opacity: 0, y: 28, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, amount }}
       transition={{ duration: 0.65, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
@@ -30,10 +30,11 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
   },
 };

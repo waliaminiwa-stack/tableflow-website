@@ -26,3 +26,30 @@ h1, h2, h3 {
 p {
   text-wrap: pretty;
 }
+
+/* ─── Animation keyframes ───────────────────────────────────── */
+
+@keyframes shimmer {
+  from { transform: translateX(-100%) skewX(-12deg); }
+  to   { transform: translateX(250%) skewX(-12deg); }
+}
+
+@keyframes blob-drift {
+  0%, 100% { transform: scale(1) translateY(0px); opacity: 0.55; }
+  50%       { transform: scale(1.18) translateY(-10px); opacity: 1; }
+}
+
+.animate-blob-drift {
+  animation: blob-drift 8s ease-in-out infinite;
+}
+
+.animate-blob-drift-slow {
+  animation: blob-drift 11s ease-in-out 2.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob-drift,
+  .animate-blob-drift-slow {
+    animation: none;
+  }
+}
