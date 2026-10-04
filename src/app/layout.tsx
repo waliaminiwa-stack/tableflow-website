@@ -3,6 +3,8 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { ConsentProvider } from "@/context/ConsentContext";
+import CookieBanner from "@/components/CookieBanner";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -72,9 +74,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ConsentProvider>
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <CookieBanner />
+        </ConsentProvider>
       </body>
     </html>
   );

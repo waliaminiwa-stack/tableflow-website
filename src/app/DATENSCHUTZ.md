@@ -43,9 +43,25 @@ Mit beiden Anbietern muss ein Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28
 
 Da TableFlow im Auftrag des jeweiligen Restaurants personenbezogene Gästedaten verarbeitet (Bestellungen, Reservierungen), ist zwischen DesignSub und jedem Restaurant-Kunden ein Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO erforderlich. [OFFEN: Dieser AVV existiert aktuell noch nicht als Dokument und sollte vor dem ersten zahlenden/produktiven Kunden erstellt und beim Onboarding mit unterzeichnet werden.]
 
-## 7. Cookies
+## 7. Cookies und Einwilligungsverwaltung
 
-TableFlow verwendet aktuell nur technisch notwendige Cookies/lokale Speicherung (z. B. Session-Verwaltung für die Anmeldung, Zoom-/Ansichtseinstellungen im Floor Plan). Es werden keine Analyse- oder Marketing-Cookies eingesetzt. [OFFEN: Falls später Analytics (z. B. Plausible, Google Analytics) ergänzt wird, muss diese Erklärung entsprechend erweitert werden — bei nicht-notwendigen Cookies ist vorherige Einwilligung nach TDDDG erforderlich.]
+### Technisch notwendig (keine Einwilligung erforderlich)
+
+Folgende lokale Speichereinträge sind technisch notwendig und erfordern keine Einwilligung (§ 25 Abs. 2 TDDDG):
+
+| Name | Zweck | Anbieter | Speicherdauer |
+|------|-------|----------|---------------|
+| `tableflow_cookie_consent` | Speichert die Cookie-Einwilligung (Kategorien, Zeitstempel, Version) im Browser-localStorage. Kein Datentransfer zu externen Servern. | table-flow.de (nur lokal) | 12 Monate |
+
+Die Web-App selbst (app.table-flow.de) nutzt ebenfalls nur technisch notwendige Speicherung (Session-Verwaltung, Zoom-/Ansichtseinstellungen im Floor Plan).
+
+### Statistik (nur mit Einwilligung, Art. 6 Abs. 1 lit. a DSGVO)
+
+Aktuell sind **keine** Statistik-Dienste aktiv. Sollten in Zukunft Analyse-Tools eingebunden werden (z. B. Plausible Analytics), geschieht dies ausschließlich nach vorheriger Einwilligung. Eine erteilte Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden über den Link **„Cookie-Einstellungen"** im Footer (Art. 7 Abs. 3 DSGVO). Auf dieser Website werden **keine** Analyse- oder Marketing-Cookies Dritter eingesetzt; insbesondere kein Google Analytics, keine Meta-Pixel und keine Werbetracker.
+
+### Schriftarten
+
+Die auf dieser Website verwendete Schriftart (Outfit von Google Fonts) wird über den Next.js-Schriftarten-Optimierer bei Build-Zeit heruntergeladen und **selbst gehostet**. Es findet kein Laufzeit-Datenaustausch mit Google-Servern statt.
 
 ## 8. Rechte der betroffenen Personen
 

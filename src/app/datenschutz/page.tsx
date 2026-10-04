@@ -100,11 +100,58 @@ export default function DatenschutzPage() {
           des Onboardings bereitgestellt und abgeschlossen.
         </p>
 
-        <h2>7. Cookies</h2>
+        <h2>7. Cookies und Einwilligungsverwaltung</h2>
+
+        <h3>Technisch notwendig (keine Einwilligung erforderlich)</h3>
         <p>
-          TableFlow verwendet aktuell nur technisch notwendige Cookies/lokale Speicherung
-          (z.&thinsp;B. Session-Verwaltung für die Anmeldung, Zoom-/Ansichtseinstellungen im Floor
-          Plan). Es werden keine Analyse- oder Marketing-Cookies eingesetzt.
+          Folgende lokale Speichereinträge sind für den Betrieb technisch notwendig und erfordern
+          keine Einwilligung (§&thinsp;25 Abs.&thinsp;2 TDDDG):
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Zweck</th>
+              <th>Anbieter</th>
+              <th>Speicherdauer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>tableflow_cookie_consent</code></td>
+              <td>
+                Speichert deine Cookie-Einwilligung (Kategorien, Zeitstempel, Version) im
+                Browser-localStorage. Kein Datentransfer zu externen Servern.
+              </td>
+              <td>table-flow.de (nur lokal)</td>
+              <td>12 Monate</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Die Web-App selbst (app.table-flow.de) nutzt ebenfalls nur technisch notwendige
+          Speicherung (Session-Verwaltung, Zoom-/Ansichtseinstellungen im Floor Plan).
+        </p>
+
+        <h3>Statistik (nur mit Einwilligung, Art.&thinsp;6 Abs.&thinsp;1 lit.&thinsp;a DSGVO)</h3>
+        <p>
+          Aktuell sind <strong>keine</strong> Statistik-Dienste aktiv. Sollten in Zukunft
+          Analyse-Tools eingebunden werden (z.&thinsp;B. Plausible Analytics), geschieht dies
+          ausschließlich nach vorheriger Einwilligung. Du kannst eine erteilte Einwilligung
+          jederzeit mit Wirkung für die Zukunft widerrufen über den Link{" "}
+          <strong>„Cookie-Einstellungen"</strong> im Footer dieser Website
+          (Art.&thinsp;7 Abs.&thinsp;3 DSGVO). Auf dieser Website werden{" "}
+          <strong>keine</strong> Analyse- oder Marketing-Cookies Dritter eingesetzt; insbesondere
+          kein Google Analytics, keine Meta-Pixel und keine Werbetracker.
+        </p>
+
+        <h3>Schriftarten</h3>
+        <p>
+          Die auf dieser Website verwendete Schriftart (Outfit von Google Fonts) wird über den
+          Next.js-Schriftarten-Optimierer bei Build-Zeit heruntergeladen und{" "}
+          <strong>selbst gehostet</strong>. Es findet kein Laufzeit-Datenaustausch mit
+          Google-Servern statt; beim Laden der Seite wird keine Verbindung zu Google
+          aufgebaut.
         </p>
 
         <h2>8. Rechte der betroffenen Personen</h2>
