@@ -170,7 +170,7 @@ export default function ProductTabsSection() {
             })}
           </div>
 
-          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-14 items-center">
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-14 items-start">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -179,12 +179,12 @@ export default function ProductTabsSection() {
                 exit={{ opacity: 0, x: 16 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               >
-                <h3 className="text-2xl font-extrabold text-slate-900 mb-3">{tab.headline}</h3>
-                <p className="text-slate-500 leading-relaxed mb-6">{tab.description}</p>
-                <ul className="space-y-2.5">
+                <h3 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 mb-4 lg:pt-2">{tab.headline}</h3>
+                <p className="text-lg text-slate-500 leading-relaxed mb-8">{tab.description}</p>
+                <ul className="space-y-4 border-t border-slate-100 pt-6">
                   {tab.highlights.map((h) => (
-                    <li key={h} className="flex items-center gap-2.5 text-sm">
-                      <span className={`w-4 h-4 rounded-full ${colors.dot} flex items-center justify-center shrink-0`}>
+                    <li key={h} className="flex items-center gap-3 text-base">
+                      <span className={`w-5 h-5 rounded-full ${colors.dot} flex items-center justify-center shrink-0`}>
                         <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
                           <path d="M1.5 4l2 2 3-3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
@@ -212,7 +212,7 @@ export default function ProductTabsSection() {
                     alt={tabImages[active].alt}
                     width={2000}
                     height={1493}
-                    className="w-full object-cover aspect-[16/11]"
+                    className="w-full object-cover aspect-[16/10]"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </motion.div>
@@ -225,7 +225,7 @@ export default function ProductTabsSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -16 }}
                   transition={{ duration: 0.35, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative -mt-14 ml-auto mr-3 sm:mr-5 w-[88%] sm:w-[80%] bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-300/40 overflow-hidden"
+                  className="relative -mt-12 ml-auto mr-3 sm:mr-5 w-[88%] sm:w-[80%] bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-300/40 overflow-hidden"
                 >
                   <div className="flex items-center gap-2 px-4 py-2.5 border-b border-slate-100 bg-slate-50/60">
                     <div className="flex gap-1.5">
