@@ -40,6 +40,10 @@ export default function Footer() {
             <CookieSettingsLink />
           </nav>
         </div>
+
+        <p className="mt-6 text-xs text-slate-400">
+          Stimmungsbilder auf dieser Website sind KI-generiert.
+        </p>
       </div>
     </footer>
   );

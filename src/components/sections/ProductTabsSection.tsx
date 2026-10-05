@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
+import Image from "next/image";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 
 const tabs = [
@@ -93,6 +94,21 @@ const tabs = [
   },
 ];
 
+const tabImages: Record<string, { src: string; alt: string }> = {
+  speisekarte: {
+    src: "/media/rolle-speisekarte.webp",
+    alt: "Gast schaut an seinem Tisch auf die digitale Speisekarte im Smartphone",
+  },
+  kellner: {
+    src: "/media/rolle-kellner.webp",
+    alt: "Kellner im Restaurant überprüft Bestellungen auf dem Tablet",
+  },
+  kueche: {
+    src: "/media/rolle-kueche.webp",
+    alt: "Köche in der Küche bereiten Gerichte nach eingegangenem Ticket vor",
+  },
+};
+
 const colorMap = {
   orange: {
     tab: "bg-orange-50 text-[#FF6B35] border-[#FF6B35]/30",
@@ -181,6 +197,27 @@ export default function ProductTabsSection() {
             </AnimatePresence>
 
             <div className="relative">
+              {/* Tab photo */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`photo-${active}`}
+                  initial={reduce ? false : { opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.28, ease: "easeInOut" }}
+                  className="mb-4 overflow-hidden rounded-2xl"
+                >
+                  <Image
+                    src={tabImages[active].src}
+                    alt={tabImages[active].alt}
+                    width={2000}
+                    height={1493}
+                    className="w-full object-cover aspect-[4/3]"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </motion.div>
+              </AnimatePresence>
+
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`mockup-${active}`}

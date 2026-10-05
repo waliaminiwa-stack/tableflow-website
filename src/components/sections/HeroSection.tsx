@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion, AnimatePresence } from "motion/react";
+import Image from "next/image";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.table-flow.de";
 
@@ -268,7 +269,43 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <OrderFlowDemo />
+            {/* ── Media: video on desktop (motion-safe), image on mobile or reduced-motion ── */}
+            <div className="relative mb-4 lg:mb-0">
+              {/* Video — desktop only, hidden via CSS when prefers-reduced-motion */}
+              <div className="hero-video-wrap hidden lg:block rounded-2xl overflow-hidden shadow-xl shadow-slate-200/60">
+                <video
+                  className="w-full aspect-video object-cover"
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                  preload="metadata"
+                  poster="/media/hero-start.webp"
+                  aria-label="TableFlow in Aktion – Gast bestellt über digitale Speisekarte"
+                >
+                  <source src="/media/hero-loop.mp4" type="video/mp4" />
+                  <source src="/media/hero-loop.webm" type="video/webm" />
+                </video>
+              </div>
+              {/* Still image — mobile always, desktop when prefers-reduced-motion (via CSS) */}
+              <div className="hero-image-wrap block lg:hidden rounded-2xl overflow-hidden shadow-xl shadow-slate-200/60">
+                <Image
+                  src="/media/hero-start.webp"
+                  alt="Gast scrollt am Tisch durch die digitale Speisekarte auf dem Smartphone"
+                  width={2000}
+                  height={1131}
+                  priority
+                  className="w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
+            {/* ── Kellner-Dashboard-Mockup, overlaps video bottom on desktop ── */}
+            <div className="relative z-10 lg:-mt-10">
+              <OrderFlowDemo />
+            </div>
+
             <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-full bg-[#FF6B35]/8 blur-3xl pointer-events-none" />
             <div className="absolute -top-4 -left-4 w-24 h-24 rounded-full bg-blue-500/6 blur-3xl pointer-events-none" />
           </motion.div>

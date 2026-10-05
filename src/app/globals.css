@@ -52,6 +52,9 @@ p {
   .animate-blob-drift-slow {
     animation: none;
   }
+  /* Hero: hide video, force show still image */
+  .hero-video-wrap { display: none !important; }
+  .hero-image-wrap { display: block !important; }
 }
 
 /* ─── Cookie consent dialog ─────────────────────────────────── */

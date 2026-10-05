@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 
 type Feature = {
@@ -8,6 +9,8 @@ type Feature = {
   business?: boolean;
   large?: boolean;
   decorative?: "qr" | "calendar";
+  imageSrc?: string;
+  imageAlt?: string;
 };
 
 function QrDecoration() {
@@ -57,6 +60,8 @@ const features: Feature[] = [
       "Gäste scannen den QR-Code am Tisch und bestellen direkt auf ihrem Smartphone. Kein Extra-Gerät, kein App-Download — die Speisekarte öffnet sich sofort im Browser und Änderungen sind in Echtzeit sichtbar.",
     large: true,
     decorative: "qr",
+    imageSrc: "/media/feature-qr.webp",
+    imageAlt: "Gast bestellt am Tisch über QR-Code auf dem Smartphone",
   },
   {
     icon: (
@@ -93,6 +98,8 @@ const features: Feature[] = [
     description:
       "Visueller Tischplan mit Live-Status. Drag & Drop Layout-Editor, um deinen Gastraum abzubilden.",
     pro: true,
+    imageSrc: "/media/feature-floorplan.webp",
+    imageAlt: "Übersichtlicher Tischplan eines Restaurants mit Live-Status",
   },
   {
     icon: (
@@ -186,41 +193,49 @@ export default function FeaturesSection() {
 
 function FeatureCard({ feature }: { feature: Feature }) {
   return (
-    <div
-      className={`group bg-white rounded-2xl border border-slate-200/80 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-100 transition-[border-color,box-shadow,transform] duration-250 hover:-translate-y-1 cursor-default h-full ${
-        feature.large ? "p-8" : "p-6"
-      }`}
-    >
-      <div className="flex items-start justify-between gap-4 h-full">
-        <div className="flex flex-col h-full min-w-0">
-          <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center mb-4 group-hover:bg-orange-100 group-hover:scale-105 transition-[background-color,transform] duration-250 shrink-0">
-            {feature.icon}
-          </div>
-          <div className="flex items-start gap-2 mb-2 flex-wrap">
-            <h3 className={`font-bold text-slate-900 leading-snug ${feature.large ? "text-lg" : "text-base"}`}>
-              {feature.title}
-            </h3>
-            {feature.pro && (
-              <span className="shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#FF6B35] border border-orange-200">
-                Pro
-              </span>
-            )}
-            {feature.business && (
-              <span className="shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-900 text-white">
-                Business
-              </span>
-            )}
-          </div>
-          <p className={`text-slate-500 leading-relaxed ${feature.large ? "text-sm sm:text-base" : "text-sm"}`}>
-            {feature.description}
-          </p>
-          {feature.large && (
-            <div className="mt-auto pt-6 flex items-end justify-end">
-              {feature.decorative === "qr" && <QrDecoration />}
-              {feature.decorative === "calendar" && <CalendarDecoration />}
-            </div>
+    <div className="group bg-white rounded-2xl border border-slate-200/80 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-100 transition-[border-color,box-shadow,transform] duration-250 hover:-translate-y-1 cursor-default h-full overflow-hidden flex flex-col">
+      {feature.imageSrc && (
+        <div className="overflow-hidden shrink-0">
+          <Image
+            src={feature.imageSrc}
+            alt={feature.imageAlt ?? ""}
+            width={2000}
+            height={1328}
+            className="w-full object-cover aspect-[3/2] transition-transform duration-500 group-hover:scale-[1.02]"
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 560px"
+          />
+        </div>
+      )}
+      <div
+        className={`flex-1 flex flex-col min-w-0 ${feature.large ? "p-8" : "p-6"} ${feature.imageSrc ? "pt-5" : ""}`}
+      >
+        <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center mb-4 group-hover:bg-orange-100 group-hover:scale-105 transition-[background-color,transform] duration-250 shrink-0">
+          {feature.icon}
+        </div>
+        <div className="flex items-start gap-2 mb-2 flex-wrap">
+          <h3 className={`font-bold text-slate-900 leading-snug ${feature.large ? "text-lg" : "text-base"}`}>
+            {feature.title}
+          </h3>
+          {feature.pro && (
+            <span className="shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#FF6B35] border border-orange-200">
+              Pro
+            </span>
+          )}
+          {feature.business && (
+            <span className="shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-900 text-white">
+              Business
+            </span>
           )}
         </div>
+        <p className={`text-slate-500 leading-relaxed ${feature.large ? "text-sm sm:text-base" : "text-sm"}`}>
+          {feature.description}
+        </p>
+        {feature.large && (
+          <div className="mt-auto pt-6 flex items-end justify-end">
+            {feature.decorative === "qr" && <QrDecoration />}
+            {feature.decorative === "calendar" && <CalendarDecoration />}
+          </div>
+        )}
       </div>
     </div>
   );
