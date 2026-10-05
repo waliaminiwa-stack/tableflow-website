@@ -170,7 +170,7 @@ export default function ProductTabsSection() {
             })}
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-14 items-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -196,8 +196,8 @@ export default function ProductTabsSection() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="relative">
-              {/* Tab photo */}
+            {/* Foto mit überlappender UI-Karte: eine ruhige Komposition statt gestapelter Einzelteile */}
+            <div className="relative pb-2">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`photo-${active}`}
@@ -205,14 +205,14 @@ export default function ProductTabsSection() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.28, ease: "easeInOut" }}
-                  className="mb-4 overflow-hidden rounded-2xl"
+                  className="overflow-hidden rounded-3xl shadow-lg shadow-slate-200/60"
                 >
                   <Image
                     src={tabImages[active].src}
                     alt={tabImages[active].alt}
                     width={2000}
                     height={1493}
-                    className="w-full object-cover aspect-[4/3]"
+                    className="w-full object-cover aspect-[16/11]"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </motion.div>
@@ -225,9 +225,9 @@ export default function ProductTabsSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -16 }}
                   transition={{ duration: 0.35, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
-                  className="bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-100/60 overflow-hidden"
+                  className="relative -mt-14 ml-auto mr-3 sm:mr-5 w-[88%] sm:w-[80%] bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-300/40 overflow-hidden"
                 >
-                  <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-100 bg-slate-50/60">
+                  <div className="flex items-center gap-2 px-4 py-2.5 border-b border-slate-100 bg-slate-50/60">
                     <div className="flex gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-slate-200" />
                       <span className="w-2.5 h-2.5 rounded-full bg-slate-200" />
@@ -235,11 +235,11 @@ export default function ProductTabsSection() {
                     </div>
                     <span className="text-xs font-semibold text-slate-400 ml-2">{tab.mockup.title}</span>
                   </div>
-                  <div className="p-4 space-y-2">
+                  <div className="p-2.5">
                     {tab.mockup.items.map((item, i) => (
-                      <div key={i} className="flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-colors">
-                        <span className="text-sm font-medium text-slate-800">{item.name}</span>
-                        <div className="flex items-center gap-2">
+                      <div key={i} className="flex items-center justify-between gap-3 py-2 px-3 rounded-xl hover:bg-slate-50 transition-colors">
+                        <span className="text-sm font-medium text-slate-800 truncate">{item.name}</span>
+                        <div className="flex items-center gap-2 shrink-0">
                           <span className="text-sm text-slate-400">{item.price}</span>
                           {item.badge && (
                             <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${colors.badge}`}>
@@ -249,52 +249,6 @@ export default function ProductTabsSection() {
                         </div>
                       </div>
                     ))}
-                  </div>
-                  <div className="px-4 pb-2" />
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Annotation bubble: Live-Ticker (top-right) */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`bubble-top-${active}`}
-                  initial={reduce ? false : { opacity: 0, scale: 0.88, y: 4 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.92, y: -4 }}
-                  transition={{ duration: 0.3, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="hidden md:flex absolute -top-4 right-0 z-10 flex-col items-end pointer-events-none"
-                >
-                  <div className="flex items-center gap-2 bg-white rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.09)] border border-slate-100 px-3.5 py-2">
-                    <span className="w-5 h-5 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center shrink-0">
-                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                        <circle cx="5" cy="5" r="3.5" stroke="#FF6B35" strokeWidth="1.2"/>
-                        <path d="M5 3v2.2l1.3 1" stroke="#FF6B35" strokeWidth="1.1" strokeLinecap="round"/>
-                      </svg>
-                    </span>
-                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap">Live-Ticker</span>
-                  </div>
-                  <div className="w-px h-5 bg-gradient-to-b from-orange-300/60 to-transparent mr-7" />
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Annotation bubble: Kein Zettelchaos (bottom-left) */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`bubble-bottom-${active}`}
-                  initial={reduce ? false : { opacity: 0, scale: 0.88, y: -4 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.92, y: 4 }}
-                  transition={{ duration: 0.3, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                  className="hidden md:flex absolute -bottom-4 left-0 z-10 flex-col items-start pointer-events-none"
-                >
-                  <div className="w-px h-5 bg-gradient-to-t from-slate-200/60 to-transparent ml-7" />
-                  <div className="flex items-center gap-2 bg-white rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.09)] border border-slate-100 px-3.5 py-2">
-                    <span className="w-5 h-5 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center shrink-0">
-                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                        <path d="M2 3h6M2 5.5h4M2 8h5" stroke="#FF6B35" strokeWidth="1.2" strokeLinecap="round"/>
-                      </svg>
-                    </span>
-                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap">Kein Zettelchaos</span>
                   </div>
                 </motion.div>
               </AnimatePresence>
