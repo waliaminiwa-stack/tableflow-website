@@ -51,6 +51,8 @@ const ORDERS = [
   },
 ];
 
+const MAX_ITEMS = Math.max(...ORDERS.map((o) => o.items.length));
+
 function OrderFlowDemo() {
   const reduce = useReducedMotion();
   const [step, setStep] = useState(0);
@@ -86,7 +88,7 @@ function OrderFlowDemo() {
 
       <div className="p-5 space-y-4">
         <div className="flex items-start justify-between gap-3">
-          <div>
+          <div className="min-w-0 flex-1">
             <AnimatePresence mode="wait">
               <motion.p
                 key={order.id}
@@ -112,6 +114,13 @@ function OrderFlowDemo() {
                   <div key={item.name} className="flex items-center justify-between gap-3">
                     <p className="text-sm font-medium text-slate-800 truncate">{item.name}</p>
                     <p className="text-xs font-semibold text-slate-400 tabular-nums shrink-0">{item.price}</p>
+                  </div>
+                ))}
+                {/* Platzhalter-Zeilen, damit die Kartenhöhe bei jeder Bestellung gleich bleibt */}
+                {Array.from({ length: MAX_ITEMS - order.items.length }).map((_, i) => (
+                  <div key={`ph-${i}`} aria-hidden="true" className="flex items-center justify-between gap-3 invisible">
+                    <p className="text-sm font-medium">&nbsp;</p>
+                    <p className="text-xs font-semibold">&nbsp;</p>
                   </div>
                 ))}
                 <div className="flex items-center justify-between pt-2 mt-1 border-t border-slate-100">
